@@ -1,0 +1,6 @@
+@interfacesAPI_HostAddress = http://localhost:5064
+
+GET {{interfacesAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
