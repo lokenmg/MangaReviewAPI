@@ -1,0 +1,44 @@
+Table usuarios{
+  id_usuarios int [pk, increment]
+  email varchar [not null]
+  contraseña varchar [not null]
+  img varchar [not null]
+}
+
+Table mangas{
+  id_manga int [pk, increment]
+  nombre varchar [not null]
+  portada varchar [not null]
+  tomo varchar  [not null]
+  estado varchar [not null]
+  año_salida varchar [not null]
+  sinopsis text [not null]
+  likes int [default: 0]
+  dislikes int [default: 0]
+}
+
+Table generos{
+  id_genero int [pk, increment]
+  genero varchar [not null]
+}
+
+Table manga_generos{
+  id_mangagenero int [pk, increment]
+  genero int [ref:>generos.id_genero]
+  manga int [ref: > mangas.id_manga]
+}
+Table resenia{
+ id_resenia int [increment, pk]
+ reseña text
+ likes int [default: 0]
+ dislike int [default: 0]
+ usuario int [ref: > usuarios.id_usuarios]
+ manga int [ref: > mangas.id_manga]
+
+}
+
+Table calificaciones{
+  id_calificacion int [pk, increment]
+  calificacion int [not null]
+  manga int [ref:> mangas.id_manga]
+}
